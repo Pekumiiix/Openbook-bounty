@@ -1,0 +1,947 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+
+  @apply m-0 p-0 box-border;
+}
+
+::-webkit-scrollbar {
+  @apply w-[5px] h-[3px];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-[5px] bg-[#888];
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+body {
+  @apply bg-myBackground;
+}
+
+#root {
+  @apply flex relative;
+}
+
+aside {
+  @apply sticky top-0;
+}
+
+aside,
+.aside-menu-ctn {
+  @apply w-[250px] h-screen flex flex-col bg-lightBackground;
+}
+
+.aside-nav,
+nav {
+  @apply flex items-center gap-2 w-full h-fit p-3 border-b border-borderColor;
+}
+
+.aside-nav img {
+  @apply w-12 h-12;
+}
+
+.aside-nav p {
+  @apply text-white text-xl font-semibold;
+}
+
+.aside-menu-ctn {
+  @apply flex flex-col gap-3 p-3 border-b border-borderColor h-fit w-full;
+}
+
+.aside-menu-item {
+  @apply flex items-center gap-2 w-full p-2 rounded-md transition-colors duration-300
+  
+  hover:bg-lightorange;
+}
+
+.aside-menu-item:hover svg,
+.aside-menu-item:hover p,
+.aside-menu-item.active svg,
+.aside-menu-item.active p,
+nav svg:hover {
+  @apply fill-myOrange text-myOrange;
+}
+
+.aside-menu-item svg {
+  @apply w-8 h-8 fill-svgFill transition-colors duration-300;
+}
+
+.aside-menu-item p {
+  @apply text-white text-base font-medium transition-colors duration-300;
+}
+
+.aside-menu-item span {
+  @apply flex gap-1 items-center;
+}
+
+.aside-menu-item span svg {
+  @apply w-4 h-4;
+}
+
+main {
+  width: calc(100% - 250px);
+
+  @apply flex flex-col gap-3 items-center pb-[50px];
+}
+
+nav {
+  @apply justify-end gap-5 h-fit;
+}
+
+nav .notification-ctn {
+  @apply flex flex-col gap-[5px] relative h-fit items-end;
+}
+
+nav .notification-ctn svg {
+  @apply w-10 h-10 fill-svgFill transition-all duration-300 p-[10px] rounded-md
+  
+  outline outline-1 outline-borderColor
+  
+  hover:outline-myOrange hover:fill-myOrange;
+}
+
+.nav-sub-menu {
+  @apply items-center gap-2 px-3 py-2 bg-lightBackground rounded-md absolute top-[50px] z-10 w-[320px]
+  
+  duration-300 outline outline-1 outline-borderColor;
+}
+
+.nav-sub-menu svg {
+  @apply w-7 h-7;
+}
+
+.nav-sub-menu p {
+  @apply text-xs text-lightTextColor font-normal cursor-default;
+}
+
+.profile {
+  @apply flex items-center gap-2 mr-3 h-12 outline outline-1 outline-borderColor rounded-md transition-all
+  
+  duration-300 px-3 py-2
+  
+  hover:outline-myOrange;
+}
+
+.profile:hover p {
+  @apply text-myOrange;
+}
+
+.profile img {
+  @apply w-7 h-7 rounded-full;
+}
+
+.profile p {
+  @apply text-white text-[13px] font-medium transition-colors duration-300 leading-none cursor-default;
+}
+
+.market-ctn {
+  @apply relative w-full flex flex-row flex-nowrap gap-5 px-3 overflow-x-scroll pb-3;
+}
+
+.market,
+.add-market {
+  @apply flex justify-between min-w-[202px] w-[351px] h-[130px] bg-lightBackground 
+  
+  rounded-lg py-3 px-4;
+}
+
+.add-market {
+  @apply flex-row;
+}
+
+.market-det-ctn {
+  @apply relative flex flex-col gap-3;
+}
+
+.market-det {
+  @apply flex w-fit h-fit gap-2 items-center;
+}
+
+.market-det img {
+  @apply w-8 h-8;
+}
+
+.market-ctn {
+  @apply text-svgFill text-base font-light;
+}
+
+.market-price {
+  @apply text-white text-lg font-semibold;
+}
+
+.price-change-percentage {
+  @apply text-svgFill text-xs font-light;
+}
+
+.market-menu-ctn {
+  @apply flex flex-col items-end gap-[3px];
+}
+
+.market-menu-ctn button {
+  @apply py-[5px] px-[6px] rounded-full flex items-center h-fit transition-colors duration-300
+  
+  hover:bg-semiLightBg;
+}
+
+.market-menu-ctn button img {
+  @apply w-5 h-5;
+}
+
+.market-menu {
+  @apply flex-col;
+}
+
+.market-menu button {
+  @apply flex p-[10px] bg-semiLightBg text-lightTextColor rounded-md text-xs
+  
+  hover:text-red-600;
+}
+
+.add-market {
+  @apply items-center flex-col transition duration-300
+  
+  hover:opacity-75;
+}
+
+.add-market img {
+  @apply w-14 h-14 fill-svgFill;
+}
+
+.add-market p {
+  @apply text-base font-medium text-white;
+}
+
+.trading-view {
+  @apply w-[98%] h-[600px] overflow-hidden;
+}
+
+/*#chart {
+  @apply w-full h-[600px] bg-red-900;
+}*/
+
+.swap {
+  @apply w-full h-fit flex flex-row flex-wrap items-center mt-[-12px];
+}
+
+.swap-chart {
+  @apply w-[68%] h-[550px] border-r border-borderColor;
+}
+
+.swap-section {
+  @apply flex flex-col w-[32%] h-[550px] items-center relative;
+}
+
+.swap-section-nav {
+  @apply w-full h-fit flex items-center border-b border-borderColor mb-2;
+}
+
+.swap-nav-btn {
+  @apply flex items-center justify-center w-1/2 py-3 text-sm text-lightTextColor
+  
+  transition-all duration-300;
+}
+
+.swap-nav-btn.active {
+  @apply bg-lightBackground text-myOrange;
+}
+
+.tab-option {
+  @apply w-full flex items-center justify-end gap-3 px-2 mb-3;
+}
+
+.tab-option-det-ctn {
+  @apply flex flex-col justify-end relative;
+}
+
+.tab-option-title {
+  @apply text-[rgba(255,255,255,0.7)] text-[13px] border-b border-dashed border-borderColor
+  
+  hover:border-transparent transition-all duration-300;
+}
+
+.tab-option-title:hover ~ .tab-option-det {
+  @apply flex;
+}
+
+.tab-option-det {
+  @apply hidden w-[275px] text-[12px] text-white bg-lightBackground p-2 rounded-md absolute
+  
+  right-0 top-6;
+}
+
+.sell-section {
+  @apply w-[90%] bg-lightBackground rounded-md p-3 h-fit flex flex-col gap-2;
+}
+
+.swap-section-header {
+  @apply text-[rgba(255,255,255,0.7)] text-base;
+}
+
+.sell-input-ctn {
+  @apply flex w-full bg-[rgba(0,0,0,0.7)] h-[55px] rounded-md;
+}
+
+.token-input-ctn {
+  @apply flex gap-2 w-1/2 h-full items-center px-3 relative border-r border-borderColor;
+}
+
+.token-input-ctn img {
+  @apply w-7 h-7 rounded-full;
+}
+
+.token-input-ctn p {
+  @apply text-lightTextColor font-medium rounded-md text-base;
+}
+
+.token-input-ctn svg {
+  @apply w-7 h-7 z-10 absolute right-0;
+}
+
+.token-list-ctn {
+  @apply flex-col w-full h-full z-10 bg-lightBackground absolute p-3 gap-3;
+}
+
+.token-list-ctn .slippage-nav p {
+  @apply text-sm font-normal;
+}
+
+.token-search-ctn {
+  @apply w-full h-[45px] outline outline-1 outline-borderColor rounded-md flex items-center p-3 bg-myBackground
+  
+  hover:outline-[rgba(255,255,255,0.5)] transition-all duration-300;
+}
+
+.token-search-ctn input {
+  @apply border-none outline-none h-[40px] w-[93%] px-2 text-sm bg-transparent;
+}
+
+.token-suggestions-ctn {
+  @apply w-full h-fit flex items-center gap-2;
+}
+
+.token-suggestions-ctn button {
+  @apply flex px-2 py-1 text-sm font-medium outline outline-1 outline-[rgba(255,255,255,0.8)] transition-all duration-300 text-[rgba(255,255,255,0.8)] rounded-md
+
+  hover:text-[rgba(255,255,255,0.5)] hover:outline-[rgba(255,255,255,0.5)];
+}
+
+.coin-ctn {
+  @apply w-full h-fit flex flex-col;
+}
+
+.coin-ctn-nav {
+  @apply w-full h-fit p-2 rounded-md bg-[#282433] flex items-center justify-between;
+}
+
+.coin-ctn-nav p {
+  @apply text-[13px] text-lightTextColor;
+}
+
+.loading {
+  @apply text-sm text-lightTextColor p-2 rounded-md outline outline-1 outline-borderColor mt-7 text-center;
+}
+
+.coin {
+  @apply flex w-full p-2 items-center justify-between;
+}
+
+.coin-left {
+  @apply flex items-center gap-2;
+}
+
+.coin-left img {
+  @apply w-7 h-7 rounded-full;
+}
+
+.coin-det-ctn {
+  @apply flex flex-col;
+}
+
+.short-name,
+.coin-balance {
+  @apply text-[rgba(255,255,255,0.7)] text-sm;
+}
+
+.full-name {
+  @apply text-xs text-lightTextColor;
+}
+
+.amount-input-ctn {
+  @apply flex flex-col items-end w-1/2 justify-center relative rounded-md
+  
+  hover:bg-[rgba(0,0,0,0.5)] transition-all duration-300;
+}
+
+.amount-input {
+  @apply w-full h-full px-3 bg-transparent rounded-md border-none outline-none text-lightTextColor text-right leading-none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hides the up/down arrows for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.swap-arrow-down {
+  @apply flex p-1 outline outline-1 outline-borderColor rounded-full fill-lightTextColor w-8 h-8
+  
+  hover:outline-myOrange hover:fill-myOrange transition-all duration-300;
+}
+
+.submit-swap {
+  @apply w-[90%] flex items-center justify-center p-2 mt-3 rounded-md gap-3 bg-[#794CA9] text-white text-[13px]
+  
+  hover:opacity-80 transition-all duration-300;
+}
+
+.extra-swap-det-ctn {
+  @apply w-[90%] flex items-center justify-between mt-3;
+}
+
+.swap-det-left {
+  @apply text-lightTextColor text-sm border-b border-dashed border-lightTextColor
+
+  hover:border-transparent transition-all duration-300;
+}
+
+.swap-det-left:last-child,
+.last-swap {
+  @apply border-none;
+}
+
+.swap-det-right {
+  @apply flex items-center gap-2 text-lightTextColor text-sm;
+}
+
+.max-slippage-settings {
+  @apply absolute w-full h-full bg-myBackground z-10 hidden flex-col gap-3 p-3;
+}
+
+.max-slippage-settings.active {
+  @apply flex;
+}
+
+.slippage-nav {
+  @apply w-full h-fit flex items-center justify-between mb-5;
+}
+
+.slippage-nav svg {
+  @apply fill-[#ADA7C3] hover:fill-myOrange transition-all duration-300;
+}
+
+.slippage-nav p {
+  @apply text-base font-medium text-white;
+}
+
+.slippage-settings-nav {
+  @apply w-full h-fit flex items-center justify-between;
+}
+
+.slippage-settings-nav p {
+  @apply text-lightTextColor text-sm font-medium;
+}
+
+.slippage-settings-nav button {
+  @apply border-none outline-none text-lightTextColor font-bold text-sm;
+}
+
+.slippage-btn-ctn {
+  @apply items-center bg-semiLightBg rounded-md w-full;
+}
+
+.slippage-btn-ctn button {
+  @apply px-5 py-3 rounded-md text-xs text-lightTextColor transition-all duration-500 w-[25%];
+}
+
+.slippage-btn-ctn button.active {
+  @apply text-myOrange bg-lightBackground;
+}
+
+.max-slippage-settings input {
+  @apply w-full h-10 p-3 text-lightTextColor text-sm border-none outline outline-1 outline-borderColor bg-[rgba(0,0,0,0.7)] rounded-md;
+}
+
+.save-btn {
+  @apply p-3 bg-[#794CA9] w-fit h-fit text-white font-medium text-sm rounded-md;
+}
+
+.swap-table {
+  @apply w-full border-t border-borderColor flex flex-col items-center justify-center;
+}
+
+.swap-table-nav {
+  @apply w-full h-fit flex items-center justify-between;
+}
+
+.account {
+  @apply flex flex-col w-full gap-3;
+}
+
+.account-nav {
+  @apply flex items-center gap-[5px] px-3;
+}
+
+.account-nav button,
+.account-nav .acoount-nav-btn {
+  @apply flex items-center p-3 text-lightTextColor font-normal rounded-sm border-b-2
+  
+  border-transparent transition-colors duration-300
+  
+  hover:text-myOrange hover:bg-lightBackground;
+}
+
+.account-nav button.active,
+.account-nav .acoount-nav-btn.active {
+  @apply border-myOrange text-myOrange;
+}
+
+.account-summary {
+  @apply grid grid-cols-3 gap-5 h-fit p-3;
+}
+
+.summary {
+  @apply flex flex-col h-fit rounded-md gap-3 px-4 py-3 outline outline-1 outline-borderColor;
+}
+
+.summary-title-ctn,
+.summary-det-name-ctn {
+  @apply flex flex-col relative;
+}
+
+.summary-title,
+.summary-det-name {
+  @apply text-lightTextColor text-base font-normal border-b border-dashed border-lightTextColor w-fit leading-none
+  
+  cursor-default hover:border-transparent transition-all duration-300;
+}
+
+.summary-title-det,
+.summary-det-expln {
+  @apply absolute hidden p-2 rounded-md w-[300px] text-xs text-lightTextColor bg-lightBackground 
+  
+  h-fit z-10 top-8;
+}
+
+.summary-title:hover ~ .summary-title-det {
+  @apply flex;
+}
+
+.summary-value {
+  @apply text-white font-medium text-3xl;
+}
+
+.summary-det-ctn {
+  @apply flex items-center gap-1;
+}
+
+.summary-det-name {
+  @apply text-lightTextColor text-base font-normal leading-none;
+}
+
+.pnl .summary-det-name {
+  @apply text-white border-none;
+}
+
+.summary-det-name:hover ~ .summary-det-expln {
+  @apply flex;
+}
+
+.pnl .summary-det-name:hover ~ .summary-det-expln {
+  @apply hidden;
+}
+
+.summary-det-value {
+  @apply text-white text-base font-normal;
+}
+
+.pnl .summary-det-value {
+  @apply text-lightTextColor;
+}
+
+.overview-main-ctn {
+  @apply grid grid-cols-3 gap-4 h-fit px-3;
+}
+
+.overview-main {
+  grid-column: 1 / span 2;
+
+  @apply h-[345px] flex flex-col items-center justify-center rounded-lg outline outline-1 outline-borderColor;
+}
+
+.overview-main svg,
+.orders-ctn svg,
+.history-main-ctn svg {
+  @apply fill-svgFill w-10 h-10 mb-2;
+}
+
+.overview-main p,
+.orders-ctn p,
+.history-main-ctn p {
+  @apply text-xs text-lightTextColor font-normal mb-4;
+}
+
+.overview-main button,
+.orders-ctn button,
+.history-main-ctn button {
+  @apply flex items-center gap-1 text-[#E6DADB] bg-[#794CA9]  p-3 rounded-md
+  
+  transition-all duration-300 hover:opacity-80;
+}
+
+.overview-main button svg,
+.orders-ctn button svg,
+.history-main-ctn button svg {
+  @apply w-5 h-5 m-0;
+}
+
+.shortcut {
+  @apply flex flex-col h-fit px-4 py-5 rounded-lg outline outline-1 outline-borderColor;
+}
+
+.shortcut h1 {
+  @apply text-white text-xl w-fit mb-5;
+}
+
+.shortcut-item {
+  @apply flex items-center gap-3 p-3 rounded-md text-lightTextColor mb-3 transition-all duration-300
+  
+  hover:bg-lightBackground;
+}
+
+.shortcut-item svg {
+  @apply w-7 h-7 fill-svgFill;
+}
+
+.balance {
+  @apply flex flex-col gap-3 px-3 w-full h-full;
+}
+
+.balance-nav {
+  @apply flex items-center justify-between;
+}
+
+.balance-nav button {
+  @apply text-sm text-lightTextColor gap-1 flex items-center px-3;
+}
+
+.balance-nav button svg {
+  @apply rotate-0 transition-all duration-500;
+}
+
+.balance-nav button.active svg {
+  @apply rotate-180;
+}
+
+.balance-title-det-ctn {
+  @apply flex flex-col relative;
+}
+
+.balance-title {
+  @apply border-b border-lightTextColor border-dashed text-left 
+  
+  transition-all duration-300 hover:border-transparent;
+}
+
+.balance-title-det-ctn .no-det {
+  @apply border-transparent;
+}
+
+.balance-title:hover ~ .balance-det {
+  @apply flex;
+}
+
+.no-det:hover ~ .balance-det {
+  @apply hidden;
+}
+
+.balance-det {
+  @apply hidden absolute p-[6px] rounded-md bg-lightBackground text-xs top-7 w-[260px];
+}
+
+.order-nav {
+  @apply flex items-center px-6 gap-7 py-5 border-y border-borderColor;
+}
+
+.order-nav button,
+.order-nav .order-nav-btn {
+  @apply text-white text-base font-semibold transition-all duration-300;
+}
+
+.order-nav button.active,
+.order-nav .order-nav-btn.active {
+  @apply text-myOrange;
+}
+
+.orders-ctn,
+.history-main-ctn {
+  @apply flex flex-col justify-center items-center h-[450px];
+}
+
+.history-nav {
+  @apply flex items-center justify-between bg-semiLightBg px-6 py-3 w-full;
+}
+
+.history-nav-left,
+.history-nav-right {
+  @apply flex items-center gap-5;
+}
+
+.history-nav-left .history-nav-btn {
+  @apply px-3 py-2 rounded-md text-[13px] font-medium text-lightTextColor
+  
+  transition-all duration-300 hover:text-myOrange hover:bg-lightBackground;
+}
+
+.history-nav-left .history-nav-btn.active {
+  @apply bg-lightBackground text-myOrange;
+}
+
+.history-nav-right button {
+  @apply text-[13px] text-lightTextColor;
+}
+
+.settings {
+  @apply flex flex-col w-full h-fit px-6 py-3 gap-[60px];
+}
+
+.settings-section {
+  @apply flex flex-col gap-5;
+}
+
+.settings-section-header {
+  @apply text-white text-[22px] font-medium;
+}
+
+.account-settings {
+  @apply flex flex-col items-center justify-center w-full h-[200px] rounded-lg 
+  
+  outline outline-1 outline-lightBackground;
+}
+
+.account-settings button {
+  @apply text-white text-sm font-medium px-3 py-3 rounded-md bg-[#71479E] flex items-center transition-all duration-300
+  
+  hover:opacity-80;
+}
+
+.account-settings button svg {
+  @apply w-5 h-5 mr-3;
+}
+
+.network-settings-section {
+  @apply flex flex-col items-center w-full h-fit border-y border-borderColor;
+}
+
+.network-item {
+  @apply flex items-center justify-between px-5 py-4 w-full border-borderColor;
+}
+
+.network-item p {
+  @apply text-white text-sm font-light;
+}
+
+.network-right {
+  @apply flex flex-col items-center gap-2;
+}
+
+.network-btn-ctn {
+  @apply flex items-center bg-semiLightBg rounded-md;
+}
+
+.network-btn-ctn button {
+  @apply px-5 py-3 rounded-md text-xs text-lightTextColor transition-all duration-500;
+}
+
+.network-btn-ctn button.active {
+  @apply text-myOrange bg-lightBackground;
+}
+
+.custom-input {
+  @apply w-full h-[40px] rounded-md justify-between;
+}
+
+.custom-input input {
+  @apply w-[75%] bg-transparent rounded-md border-none h-full outline outline-1 outline-lightBackground
+  
+  px-3 text-[12px] text-white;
+}
+
+.custom-input button {
+  @apply px-4 h-full bg-lightBackground rounded-md text-white text-xs;
+}
+
+.prefence-wallet {
+  @apply flex flex-col gap-2;
+}
+
+.preference-wallet-header {
+  @apply text-base text-white font-medium;
+}
+
+.preference-wallet-settings {
+  @apply flex items-center justify-between px-5 py-3 border-y border-borderColor;
+}
+
+.preference-wallet-settings {
+  @apply text-white text-sm font-normal;
+}
+
+.toggle-track {
+  @apply w-[45px] h-5 rounded-full bg-gray-900 flex items-center  transition-all
+  
+  duration-300;
+}
+
+.toggle-track.active {
+  @apply bg-green-700;
+}
+
+.toggle-track.active .toggle-thumb {
+  @apply translate-x-[25px];
+}
+
+.toggle-thumb {
+  @apply w-[18px] h-[18px] bg-white rounded-full transition-all duration-300;
+}
+
+.explorer {
+  @apply flex items-center justify-between px-5 py-4 rounded-md outline outline-1 outline-borderColor w-full
+  
+  transition-all duration-300 hover:outline-[#ffffff80];
+}
+
+.explorer-det-ctn {
+  @apply flex items-center gap-4;
+}
+
+.explorer img {
+  @apply w-5 h-5;
+}
+
+.explorer p {
+  @apply text-lightTextColor text-sm;
+}
+
+.explorer.active svg {
+  @apply flex h-5 w-5;
+}
+
+.explorer svg {
+  @apply hidden;
+}
+
+.telemetry-det-ctn {
+  @apply flex flex-col relative;
+}
+
+.telemetry-title {
+  @apply border-b border-dashed border-white text-white text-sm hover:border-transparent
+  
+  transition-all duration-300;
+}
+
+.telemetry-title:hover ~ .telemetry-det {
+  @apply flex;
+}
+
+.telemetry-det {
+  @apply hidden text-xs text-lightTextColor p-2 rounded-md bg-lightBackground absolute bottom-5 w-[375px];
+}
+
+.prefered-sound-settings {
+  @apply flex flex-col gap-2;
+}
+
+.prefered-sound-first,
+.prefered-sound-item {
+  @apply flex items-center justify-between;
+}
+
+.prefered-sound-ctn {
+  @apply flex flex-col border-t border-borderColor;
+}
+
+.prefered-sound-item {
+  @apply px-5 py-3 border-b border-borderColor;
+}
+
+.prefered-sound-item p {
+  @apply text-white text-sm font-normal;
+}
+
+.display-settings-ctn {
+  @apply flex flex-col border-t border-borderColor;
+}
+
+.display-settings-item {
+  @apply flex px-5 py-3 items-center justify-between border-b border-borderColor;
+}
+
+.display-settings-item p {
+  @apply text-white text-sm font-normal;
+}
+
+.display-menu-ctn {
+  @apply flex flex-col;
+}
+
+.display-menu-input {
+  @apply flex relative;
+}
+
+.display-menu-input input {
+  @apply h-10 w-[150px] border border-white rounded-md bg-transparent px-3 text-white text-sm outline-none;
+}
+
+.display-menu-input svg {
+  @apply absolute right-4 top-[10px] rotate-0 transition-all duration-300;
+}
+
+.display-menu-input.active svg {
+  @apply rotate-180;
+}
+
+.display-menu {
+  @apply flex-col bg-semiLightBg rounded-md absolute mt-11 w-[150px];
+}
+
+.display-menu button {
+  @apply text-sm text-white p-2 font-normal transition-all duration-300 hover:text-myOrange;
+}
+
+.display-menu button.active {
+  @apply text-myOrange;
+}
+
+.trade-layout-ctn {
+  @apply flex flex-row w-fit h-fit outline outline-1 outline-borderColor gap-2 relative justify-center
+
+  transition-all duration-300 hover:outline-white;
+}
+
+.trade-layout-ctn.active {
+  @apply outline-myOrange;
+}
+
+.trade-layout-ctn p {
+  @apply hidden text-white text-[12px] font-normal absolute p-2 rounded-md bg-semiLightBg top-[-45px]
+
+  whitespace-nowrap;
+}
+
+.trade-layout-ctn:hover p {
+  @apply flex;
+}
